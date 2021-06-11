@@ -19,7 +19,7 @@ var (
 	socksProxyProtocol = map[string]int{"SOCKS4": socks.SOCKS4, "SOCKS5": socks.SOCKS5, "SOCKS4A": socks.SOCKS4A, "SOCKS5A": socks.SOCKS5}
 )
 
-func checkHTTPProxy(ip string, port int, protocol string) (models.ProxyInfo, error) {
+func CheckHTTPProxy(ip string, port int, protocol string) (models.ProxyInfo, error) {
 	proxyInfo := models.ProxyInfo{IP: ip, Port: port, Protocol: protocol}
 	proxy := fmt.Sprintf("%v://%v:%v", protocol, ip, port)
 
@@ -49,7 +49,7 @@ func checkHTTPProxy(ip string, port int, protocol string) (models.ProxyInfo, err
 	return proxyInfo, nil
 }
 
-func checkSOCKSProxy(ip string, port int, protocol string) (models.ProxyInfo, error) {
+func CheckSOCKSProxy(ip string, port int, protocol string) (models.ProxyInfo, error) {
 	proxyInfo := models.ProxyInfo{IP: ip, Port: port, Protocol: protocol}
 	proxy := fmt.Sprintf("%v:%v", ip, port)
 
